@@ -69,22 +69,6 @@ public class Week02 {
         return preorderList2;
     }
 
-    class Node {
-        public int val;
-        public List<Node> children;
-
-        public Node() {}
-
-        public Node(int _val) {
-            val = _val;
-        }
-
-        public Node(int _val, List<Node> _children) {
-            val = _val;
-            children = _children;
-        }
-    }
-
     /**
      * 3.1字母异位词分组
      * @param strs
@@ -202,10 +186,93 @@ public class Week02 {
         return preorderTraversalList2;
     }
 
+    /**
+     * 4.1 给定一个 N 叉树，返回其节点值的后序遍历
+     * @param root
+     * @return
+     */
+
+    public List<Integer> postorder1(Node root) {
+        List<Integer> postorderList = new LinkedList<>();
+        if (root == null) {
+            return postorderList;
+        }
+        for (Node node : root.children) {
+            postorderList.addAll(postorder1(node));
+        }
+        postorderList.add(root.val);
+        return postorderList;
+    }
+
+    /**
+     * 4.2 给定一个 N 叉树，返回其节点值的后序遍历
+     * @param root
+     * @return
+     */
+
+    public List<Integer> postorder2(Node root) {
+        List<Integer> postorderList = new LinkedList<>();
+        if (root == null) {
+            return postorderList;
+        }
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            root = stack.pop();
+            postorderList.add(0,root.val);
+            for (Node node : root.children) {
+                stack.push(node);
+            }
+        }
+        return postorderList;
+    }
+
+    /**
+     * 5.N叉树的层序遍历
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrder(Node root) {
+        if (root == null) {
+            return new LinkedList<>();
+        }
+        List<List<Integer>> list = new LinkedList<>();
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            List<Integer> levelNodes = new LinkedList<>();
+            for (int i = 0; i < queue.size(); i++) {
+                root = queue.poll();
+                levelNodes.add(root.val);
+                for (Node node : root.children) {
+                    queue.add(node);
+                }
+            }
+            list.add(levelNodes);
+        }
+        return list;
+    }
+
     class TreeNode {
       int val;
       TreeNode left;
       TreeNode right;
       TreeNode(int x) { val = x; }
+    }
+
+    class Node {
+        public int val;
+        public List<Node> children;
+
+        public Node() {}
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, List<Node> _children) {
+            val = _val;
+            children = _children;
+        }
     }
 }
