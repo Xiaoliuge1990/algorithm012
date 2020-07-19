@@ -2,7 +2,7 @@
 
 整理一下这部分笔记经典题目（哈希表，映射，集合，树，二叉树，堆，二叉堆）
 
-## 2.1有效的字母异位词
+### 2.1有效的字母异位词
 > 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。使用本节哈希表解法
 ```
     public boolean isAnagram(String s, String t) {
@@ -22,10 +22,10 @@
         return true;
     }
 ```
-2.2
-字母异位词分组
-给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
-使用map解法
+### 2.2字母异位词分组
+> 给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+> 使用map解法
+```
     public List<List<String>> groupAnagrams(String[] strs) {
         if (strs.length == 0) {
             return new ArrayList<>();
@@ -44,11 +44,12 @@
         }
         return new LinkedList<>(map.values());
     }
-2.3
-两数之和
-给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
-你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
-map解法
+```
+### 2.3两数之和
+> 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+> 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+> map解法
+```
     public int[] twoSum(int[] nums, int target) {
         Map<Integer,Integer> map = new HashMap<>(nums.length);
         for (int i = 0; i < nums.length; map.put(nums[i],i++)) {
@@ -58,10 +59,11 @@ map解法
         }
         return null;
     }
-2.4
-二叉树的中序遍历（左根右）
-给定一个二叉树，返回它的中序 遍历。
-1)递归
+```
+### 2.4二叉树的中序遍历（左根右）
+> 给定一个二叉树，返回它的中序 遍历。
+> 1)递归
+```
     List<Integer> inorderTraversalList = new ArrayList<>();
     public List<Integer> inorderTraversal1(TreeNode root) {
         if (root == null) {
@@ -72,7 +74,9 @@ map解法
         inorderTraversal1(root.right);
         return inorderTraversalList;
     }
-2)维护栈的解法
+ ```
+> 2)维护栈的解法
+```
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> inorderTraversalList2 = new LinkedList<>();
         Stack<TreeNode> stack = new Stack<>();
@@ -87,10 +91,11 @@ map解法
         }
         return inorderTraversalList2;
     }
-2.5
-二叉树的前序遍历（根左右）
-给定一个二叉树，返回它的 前序 遍历。
-1)递归
+```
+### 2.5二叉树的前序遍历（根左右）
+> 给定一个二叉树，返回它的 前序 遍历。
+> 1)递归
+```
     List<Integer> preorderTraversalList = new ArrayList<>();
     public List<Integer> preorderTraversal1(TreeNode root) {
         if (root == null) {
@@ -101,7 +106,9 @@ map解法
         preorderTraversal1(root.right);
         return preorderTraversalList;
     }
-2)维护栈的解法
+```
+> 2)维护栈的解法
+```
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> preorderTraversalList2 = new LinkedList<>();
         Stack<TreeNode> stack = new Stack<>();
@@ -116,10 +123,11 @@ map解法
         }
         return preorderTraversalList2;
     }
-2.6
-N叉树的后序遍历（左右根）
-给定一个 N 叉树，返回其节点值的后序遍历。
-1)递归
+```
+### 2.6 N叉树的后序遍历（左右根）
+> 给定一个 N 叉树，返回其节点值的后序遍历。
+> 1)递归
+```
     public List<Integer> postorder(Node root) {
         List<Integer> postorderList = new LinkedList<>();
         if (root == null) {
@@ -131,7 +139,9 @@ N叉树的后序遍历（左右根）
         postorderList.add(root.val);
         return postorderList;
     }
-2)维护栈
+```
+> 2)维护栈
+```
     public List<Integer> postorder(Node root) {
        List<Integer> postorderList = new LinkedList<>();
         if (root == null) {
@@ -148,9 +158,11 @@ N叉树的后序遍历（左右根）
         }
         return postorderList;
     }
-2.7N叉树的层序遍历
-给定一个 N 叉树，返回其节点值的层序遍历。 (即从左到右，逐层遍历)。
-暂时理解了一种解法
+```
+### 2.7N叉树的层序遍历
+> 给定一个 N 叉树，返回其节点值的层序遍历。 (即从左到右，逐层遍历)。
+> 暂时理解了一种解法
+```
     public List<List<Integer>> levelOrder(Node root) {
         if (root == null) {
             return new LinkedList<>();
@@ -172,8 +184,9 @@ N叉树的后序遍历（左右根）
         }
         return list;
     }
-2.8 需要稍微在学习一下丑树的数学概念在更新
+```
+### 2.8 需要稍微在学习一下丑树的数学概念在更新
 
-2.9 前 K 个高频元素 
+### 2.9 前 K 个高频元素 
 
 
