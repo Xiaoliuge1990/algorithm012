@@ -4,9 +4,9 @@
 ### 3.1爬楼梯 （斐波那契数列变形）
 > 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
 ```
-	/**
-	 * 斐波那契数列通向公式 
-	 */
+    /**
+     * 斐波那契数列通向公式 
+     */
     public int climbStairs(int n) {
         double sqrt5 = Math.sqrt(5);
         return (int)((Math.pow((1 + sqrt5) / 2,n + 1) - Math.pow((1 - sqrt5) / 2,n + 1)) /sqrt5);
@@ -53,10 +53,10 @@
 ### 3.3翻转二叉树
 > 翻转一棵二叉树。
 ```
-	/**
-	 * 递归
-	 */
-	public TreeNode invertTree(TreeNode root) {
+    /**
+     * 递归
+     */
+    public TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return root;
         }
@@ -67,8 +67,8 @@
         return root;
     }
     /**
-	 * 队列 + 迭代
-	 */
+     * 队列 + 迭代
+     */
     public TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return root;
@@ -94,9 +94,9 @@
 ### 3.4 验证二叉搜索树
 > 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
 ```
-	/**
-	 * 中序遍历 ，使用栈
-	 */
+    /**
+     * 中序遍历 ，使用栈
+     */
     public boolean isValidBST(TreeNode root) {
         if (root == null) {
             return true;
@@ -138,9 +138,9 @@
 ### 3.5二叉树的最大深度
 >给定一个二叉树，找出其最大深度。二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
 ```
-	/**
-	 * 递归
-	 */
+    /**
+     * 递归
+     */
     public int maxDepth(TreeNode root) {
         return root == null ? 0 : Math.max(maxDepth(root.left),maxDepth(root.right)) + 1;
     }
@@ -148,9 +148,9 @@
 ### 3.6二叉树的最小深度
 >给定一个二叉树，找出其最小深度。最小深度是从根节点到最近叶子节点的最短路径上的节点数量。
 ```
-	/**
-	 * 递归
-	 */
+    /**
+     * 递归
+     */
     public int minDepth(TreeNode root) {
         if (root == null) {
             return 0;
